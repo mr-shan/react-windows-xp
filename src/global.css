@@ -23,9 +23,3 @@
     box-sizing: border-box;
     user-select: none;
 }
-
-button {
-    user-select: none;
-}
-
-@import url('./assets/fonts/TahomaItalic.ttf');
