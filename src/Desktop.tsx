@@ -1,11 +1,12 @@
-import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
 
-import Taskbar from './components/taskbar/Taskbar'
+import './Desktop.css'
 
-function App() {
+import Taskbar from './components/widgets/taskbar/Taskbar'
+
+
+function Desktop() {
   return (
     <>
       <div>
@@ -15,4 +16,4 @@ function App() {
   )
 }
 
-export default App
+export default Desktop

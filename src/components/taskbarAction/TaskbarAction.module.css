@@ -1,0 +1,13 @@
+.container {
+    font-size: 1rem;
+    min-width: 7rem;
+    background: #1190e9;
+    display: flex;
+    height: var(--taskbar-height);
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+  
+    box-shadow: inset 0px 5px 7px #98d5ff, inset 0px 5px 4px #007fd3;
+    border-left: black solid 1px;
+  }
