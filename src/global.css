@@ -1,0 +1,27 @@
+:root {
+  --primary-blue: #245bd9;
+  --window-blue: #0057ed;
+  --window-blue-background: #7b99e1;
+  --primary-blue-lighter-1: #3a80f2;
+  --primary-blue-lighter-2: #0c8ce8;
+  --primary-blue-darker-1: #1650ba;
+
+  --button-border: #c1d3f9;
+  --green: #25a828;
+  --green-lighter: #3ab33c;
+  --green-dark: #2e6930;
+  --red: #e25121;
+
+  --white: #ffffff;
+  --white-2: #fcfcfe;
+  --white-context-menu: #f0f0f0;
+  --background-yellow-gray: #eae8db;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+@import url('./assets/fonts/TahomaItalic.ttf');

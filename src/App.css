@@ -1,0 +1,8 @@
+@import url('./global.css');
+
+body {
+  background-image: url('./assets/images/wallpaper.jpg');
+  object-position: center;
+  object-fit: contain;
+  background-size: cover;
+}
