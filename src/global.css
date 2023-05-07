@@ -8,7 +8,7 @@
 
   --button-border: #c1d3f9;
   --green: #25a828;
-  --green-lighter: #3ab33c;
+  --green-lighter: #40b942;
   --green-dark: #2e6930;
   --red: #e25121;
 
@@ -21,6 +21,10 @@
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
+    user-select: none;
+}
+
+button {
     user-select: none;
 }
 

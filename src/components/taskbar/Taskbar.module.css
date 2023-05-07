@@ -57,18 +57,19 @@
   font-family: sans-serif;
   font-weight: bold;
   text-shadow: 2px 2px #666;
-  padding-left: 10px;
+  padding-left: 8px;
   padding-top: 2px;
+  outline: none;
 }
 
-.startButton:hover {
-    /* border: none; */
+.startButton:hover, .startButton:active, .startButton:focus {
+    border: solid 1px var(--green-dark);
     outline: none;
     background-color: var(--green-lighter);
+    box-shadow: inset 3px 3px 10px var(--green-dark), inset -3px -3px 10px var(--green-dark);
 }
 
 .startButtonLogo {
   width: 2rem;
   margin-right: 2px;
-  margin-bottom: 2px;
 }
