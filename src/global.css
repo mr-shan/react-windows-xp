@@ -5,12 +5,21 @@
   --primary-blue-lighter-1: #3a80f2;
   --primary-blue-lighter-2: #0c8ce8;
   --primary-blue-darker-1: #1650ba;
+  --window-button-blue: #136ef7;
+
+  --window-inactive: #7f97da;
+  --window-inactive-light: #a5baf1;
+  --window-inactive-dark: #6a83ca;
 
   --button-border: #c1d3f9;
   --green: #25a828;
   --green-lighter: #40b942;
   --green-dark: #2e6930;
-  --red: #e25121;
+  --red: #e44c1b;
+  --red-light: #ec6436;
+  --red-dark: #c33812;
+  --red-inactive: #a4819f;
+  --red-inactive-dark: #8e6d89;
 
   --white: #ffffff;
   --white-2: #fcfcfe;
@@ -18,10 +27,12 @@
   --background-yellow-gray: #eae8db;
 
 
-  --taskbar-height: 2.5rem
+  --taskbar-height: 2.5rem;
+  --title-bar-height: 2.3rem;
 }
 
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
+    -webkit-user-select: none;
 }

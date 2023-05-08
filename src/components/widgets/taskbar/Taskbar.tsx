@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { createNewTask } from "../../../store/slices/taskManager";
 
-import StartButton from "../../startButton/startButton";
+import StartButton from "./../../Buttons/startButton/startButton";
 import TaskbarAction from "../../taskbarAction/TaskbarAction";
 
 import styles from "./Taskbar.module.css";

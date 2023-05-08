@@ -1,8 +1,19 @@
-@import url('./global.css');
+@import url("./global.css");
 
 body {
-  background-image: url('./assets/images/wallpaper.jpg');
+  background-image: url("./assets/images/wallpaper.jpg");
   object-position: center;
   object-fit: contain;
   background-size: cover;
+}
+
+.desktop-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }

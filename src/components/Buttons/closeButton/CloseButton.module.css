@@ -1,0 +1,35 @@
+.button {
+    outline: none;
+    border: solid 1px white;
+    width: 1.7rem;
+    height: 1.7rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: 0.1s all;
+    
+    background-color: var(--red-inactive);
+    box-shadow: inset 3px 3px 4px var(--red-inactive-dark),
+    inset -3px -3px 4px var(--red-inactive-dark);
+}
+
+.buttonActive {
+    background-color: var(--red);
+    box-shadow: inset 3px 3px 4px var(--red-dark),
+    inset -3px -3px 4px var(--red-dark);
+}
+
+.button:hover {
+    outline: none;
+    border: solid 1px white;
+    background-color: var(--red-light);
+    box-shadow: inset 1px 1px 3px var(--red),
+    inset -2px -2px 3px var(--red);
+}
+
+.button img {
+    width: 28px;
+}

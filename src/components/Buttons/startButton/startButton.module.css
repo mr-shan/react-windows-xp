@@ -9,7 +9,8 @@
   outline: none;
   transition: all 0.2s;
   clip-path: circle(80% at 40% 40%);
-  box-shadow: inset 5px 5px 10px var(--green-dark), inset -5px -5px 10px var(--green-dark);
+  box-shadow: inset 5px 5px 10px var(--green-dark),
+    inset -5px -5px 10px var(--green-dark);
   font-size: 1.5rem;
   font-family: revert;
   font-style: italic;
@@ -24,16 +25,19 @@
   padding-left: 8px;
   padding-top: 2px;
   outline: none;
+  z-index: 10;
 }
 
-.startButton:hover, .startButton:active, .startButton:focus {
-    border: solid 1px var(--green-dark);
-    outline: none;
-    background-color: var(--green-lighter);
-    box-shadow: inset 3px 3px 10px var(--green-dark), inset -3px -3px 10px var(--green-dark);
+.startButton:hover,
+.startButton:active,
+.startButton:focus {
+  border: solid 1px var(--green-dark);
+  outline: none;
+  background-color: var(--green-lighter);
+  box-shadow: inset 3px 3px 10px var(--green-dark),
+    inset -3px -3px 10px var(--green-dark);
 }
 
 .startButtonLogo {
   width: 2rem;
-  margin-right: 2px;
 }
