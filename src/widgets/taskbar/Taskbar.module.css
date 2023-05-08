@@ -1,0 +1,45 @@
+:root {
+  --taskbar-height: 2.5rem;
+}
+
+.container {
+  background-color: var(--primary-blue);
+  position: fixed;
+  bottom: 0;
+  height: var(--taskbar-height);
+  width: 100%;
+
+  box-shadow: inset 0px 5px 3px var(--primary-blue-lighter-2),
+    inset 0px -2px 5px var(--primary-blue-darker-1);
+
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.taskbarProgramLauncher {
+  background: transparent;
+  outline: none;
+  padding: 0;
+  border: none;
+  margin: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  align-self: center;
+  justify-self: flex-start;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s;
+  border-radius: 5px;
+}
+
+.taskbarProgramLauncher:hover {
+  background-color: var(--primary-blue-lighter-1);
+}
+
+.taskbarProgramLauncher img {
+  width: 1.25rem;
+  height: 1.25rem;
+}

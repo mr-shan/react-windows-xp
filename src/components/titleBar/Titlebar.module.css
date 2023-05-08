@@ -1,37 +1,47 @@
 .container {
-    display: flex;
-    width: 100%;
-    height: var(--title-bar-height);
-    position: absolute;
-    top: 0;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 4px 4px 0 0;
-    padding: 7px;
+  display: flex;
+  width: 100%;
+  height: var(--title-bar-height);
+  position: absolute;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px 4px 0 0;
+  padding: 7px;
 
-    background-color: var(--window-inactive);
-    box-shadow: inset 0px 4px 3px var(--window-inactive-light),
+  background-color: var(--window-inactive);
+  box-shadow: inset 0px 4px 3px var(--window-inactive-light),
     inset 0px -4px 2px var(--window-inactive-dark);
-    background: linear-gradient(var(--window-inactive), var(--window-inactive), var(--window-inactive), var(--window-inactive-light));
+  background: linear-gradient(
+    var(--window-inactive),
+    var(--window-inactive),
+    var(--window-inactive),
+    var(--window-inactive-light)
+  );
 }
 
 .containerActive {
-    background-color: var(--window-blue);
-    box-shadow: inset 0px 4px 3px var(--primary-blue-lighter-1),
+  background-color: var(--window-blue);
+  box-shadow: inset 0px 4px 3px var(--primary-blue-lighter-1),
     inset 0px -4px 2px var(--primary-blue-darker-1);
-    background: linear-gradient(var(--window-blue), var(--window-blue), var(--window-blue), var(--primary-blue-lighter-1));
+  background: linear-gradient(
+    var(--window-blue),
+    var(--window-blue),
+    var(--window-blue),
+    var(--primary-blue-lighter-1)
+  );
 }
 
 .title {
-    font-weight: 600;
-    margin-top: 2px;
-    font-size: 1rem;
-    padding-left: 5px;
+  font-weight: 600;
+  margin-top: 2px;
+  font-size: 1rem;
+  padding-left: 2px;
 }
 
 .buttonsContainer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  align-items: center;
 }

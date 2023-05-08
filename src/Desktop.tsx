@@ -3,11 +3,12 @@ import { setWindowInFocus } from "./store/slices/windowManagement";
 
 import "./Desktop.css";
 
-import Taskbar from "./components/widgets/taskbar/Taskbar";
-import Window from "./components/widgets/window/Window";
+import Taskbar from "./widgets/taskbar/Taskbar";
+import Notepad from "./programs/notepad/Notepad";
 
 function Desktop() {
   const dispatch = useDispatch();
+  const runningTasks = useSelector(state => state.taskManager.runningTasks);
 
   const setFocus = () => {
     dispatch(setWindowInFocus(0));
@@ -15,8 +16,10 @@ function Desktop() {
 
   return (
     <div className="desktop-container" onMouseDown={setFocus}>
-      <Window id="1" />
-      <Window id="2" />
+      {runningTasks.map(task => {
+        const Component = task.component;
+        return <Notepad config={task} key={task.id}/>
+      })}
       <Taskbar />
     </div>
   );

@@ -1,20 +1,23 @@
+import { nanoid } from "nanoid";
 import { createSlice } from "@reduxjs/toolkit";
-
-interface ITask {
-  id: number;
-  name: string;
-  program: string;
-}
+import * as PROGRAMS from "./../../constants/programs";
 
 export const taskManager = createSlice({
   name: "taskManager",
   initialState: {
-    runningTasks: Array<ITask>(),
+    runningTasks: new Array<any>(),
   },
   reducers: {
     createNewTask: (state, action) => {
-      console.log("New task alert", action.payload);
-      state.runningTasks.push(action.payload);
+      const programConfig = PROGRAMS[action.payload.name];
+      if (!programConfig) {
+        // TODO handle error
+        return;
+      }
+
+      const newProgram = { ...programConfig };
+      newProgram.id = nanoid();
+      state.runningTasks.push(newProgram);
     },
     closeTask: (state, action) => {
       state.runningTasks = state.runningTasks.filter(
