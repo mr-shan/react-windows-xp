@@ -21,6 +21,12 @@
   border-top: none;
 }
 
+.noWindowBorders {
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px var(--window-blue);
+}
+
 .title {
     display: flex;
     justify-content: center;

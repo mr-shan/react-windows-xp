@@ -19,7 +19,7 @@ export default function Titlebar(props) {
   }
 
   return (
-    <div className={classes} onMouseMove={(event) => mouseDownHandler(event)}>
+    <div className={classes} onMouseMove={(event) => mouseDownHandler(event)} onDoubleClick={props.onStateChange}>
       <div className={styles.title}>{props.children}</div>
       <div className={styles.buttonsContainer}>
         <CloseButton focus={props.focus} onClose={props.onClose}/>

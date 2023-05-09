@@ -8,7 +8,7 @@ import Notepad from "./programs/notepad/Notepad";
 
 function Desktop() {
   const dispatch = useDispatch();
-  const runningTasks = useSelector(state => state.taskManager.runningTasks);
+  const runningTasks = useSelector((state) => state.taskManager.runningTasks);
 
   const setFocus = () => {
     dispatch(setWindowInFocus(0));
@@ -16,10 +16,12 @@ function Desktop() {
 
   return (
     <div className="desktop-container" onMouseDown={setFocus}>
-      {runningTasks.map(task => {
-        const Component = task.component;
-        return <Notepad config={task} key={task.id}/>
-      })}
+      <div className="desktop-area">
+        {runningTasks.map((task) => {
+          const Component = task.component;
+          return <Notepad config={task} key={task.id} />;
+        })}
+      </div>
       <Taskbar />
     </div>
   );

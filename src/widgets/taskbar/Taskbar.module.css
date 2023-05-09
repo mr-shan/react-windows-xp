@@ -4,15 +4,11 @@
 
 .container {
   background-color: var(--primary-blue);
-  position: fixed;
-  bottom: 0;
   height: var(--taskbar-height);
   width: 100%;
 
-  box-shadow: inset 0px 6px 4px var(--primary-blue-lighter-2), inset 0px -10px 10px var(--primary-blue-darker-2);
-
-  background: linear-gradient(var(--primary-blue), var(--primary-blue-darker-1), var(--primary-blue-darker-1));
-
+  box-shadow: inset 0px 6px 3px var(--primary-blue-lighter-2),
+    inset 0px -4px 5px var(--primary-blue-darker-2);
   display: flex;
   justify-content: space-between;
   gap: 5px;

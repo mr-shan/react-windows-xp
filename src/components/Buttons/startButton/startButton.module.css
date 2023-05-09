@@ -34,7 +34,7 @@
 .startButton:focus {
   /* border: solid 1px var(--green-dark); */
   outline: none;
-  box-shadow: inset 0px 5px 4px var(--green), inset 0px -8px 10px var(--green);
+  box-shadow: inset 0px 5px 8px var(--green-lighter), inset 0px -3px 10px var(--green-dark);
 }
 
 .startButtonLogo {
