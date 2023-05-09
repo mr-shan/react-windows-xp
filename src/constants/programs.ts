@@ -1,4 +1,4 @@
-import notepad from './../assets/logos/notepad.png'
+import notepad from '@/assets/logos/notepad.png'
 
 export const NOTEPAD = {
   id: null,

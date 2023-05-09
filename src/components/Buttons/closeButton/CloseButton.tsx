@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import styles from "./CloseButton.module.css";
-import cross2 from "./../../../assets/logos/cross2.png";
+import cross2 from "@/assets/logos/cross2.png";
 
 export default function CloseButton(props) {
   const [classes, setClasses] = useState(

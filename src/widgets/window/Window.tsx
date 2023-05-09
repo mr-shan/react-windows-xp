@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Titlebar from "../../components/titleBar/Titlebar";
 import styles from "./Window.module.css";
 
-import { setWindowInFocus } from "../../store/slices/windowManagement";
+import { setWindowInFocus } from "@/store/slices/windowManagement";
 
 export default function Window(props) {
   const dispatch = useDispatch();

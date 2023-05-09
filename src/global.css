@@ -5,15 +5,18 @@
   --primary-blue-lighter-1: #3a80f2;
   --primary-blue-lighter-2: #0c8ce8;
   --primary-blue-darker-1: #1650ba;
+  --primary-blue-darker-2: #114098;
+  --primary-blue-darker-3: #0e3172;
   --window-button-blue: #136ef7;
 
   --window-inactive: #7f97da;
   --window-inactive-light: #a5baf1;
   --window-inactive-dark: #6a83ca;
+  --tab-inactive: #4a7cec;
 
   --button-border: #c1d3f9;
   --green: #25a828;
-  --green-lighter: #40b942;
+  --green-lighter: #8aec8c;
   --green-dark: #2e6930;
   --red: #e44c1b;
   --red-light: #ec6436;
@@ -27,7 +30,7 @@
   --background-yellow-gray: #eae8db;
 
 
-  --taskbar-height: 2.5rem;
+  --taskbar-height: 2.3rem !important;
   --title-bar-height: 2.3rem;
 }
 

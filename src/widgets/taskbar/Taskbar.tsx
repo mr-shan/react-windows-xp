@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { createNewTask } from "../../store/slices/taskManager";
+import { createNewTask } from "@/store/slices/taskManager";
 
-import StartButton from "../../components/Buttons/startButton/startButton";
-import TaskbarAction from "../../components/taskbarAction/TaskbarAction";
+import StartButton from "@/components/Buttons/startButton/startButton";
+import TaskbarAction from "@/components/taskbarAction/TaskbarAction";
+import OpenWindowsInTaskbar from "@/components/openWindowsInTaskbar/OpenWindowsInTaskbar";
 
-import notepad from "./../../assets/logos/notepad.png";
+import notepad from "@/assets/logos/notepad.png";
 
 import styles from "./Taskbar.module.css";
 
@@ -29,6 +30,7 @@ export default function Taskbar() {
     <div className={styles.container}>
       <StartButton />
       {Icon}
+      <OpenWindowsInTaskbar />
       <TaskbarAction />
     </div>
   );

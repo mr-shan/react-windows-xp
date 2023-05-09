@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: var(--taskbar-height);
+    padding: 2px;
+    padding-top: 4px;
+}
+
+.taskWrapper {
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding: 3px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1 1 auto;
+    overflow: hidden;
+
+    animation: open-in .25s ease-out forwards;
+    transition: all 0.25s;
+    
+    border-right: solid 1px var(--primary-blue-darker-3);
+    background-color: var(--primary-blue-lighter-2);
+    box-shadow: 1px 1px 7px var(--primary-blue-darker-3), inset 0px -2px 4px var(--primary-blue-darker-3);
+}
+
+.active {
+    background-color: var(--primary-blue-darker-2);
+    box-shadow: inset 1px 1px 5px var(--primary-blue-darker-3), inset -2px -2px 5px var(--primary-blue-darker-3);
+}
+
+.taskWrapper img {
+    width: 1.2rem;
+    margin-right: 10px;
+}
+
+@keyframes open-in {
+    from {
+        width: 0;
+        opacity: 0;
+        max-width: 2rem;
+    }
+    to {
+        max-width: 12rem;
+        opacity: 1;
+    }
+}
