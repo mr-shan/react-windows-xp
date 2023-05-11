@@ -1,4 +1,5 @@
 @import url("./global.css");
+@import url("./newGlobal.css");
 
 body {
   background-image: url("./assets/images/wallpaper.jpg");

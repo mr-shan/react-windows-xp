@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setWindowInFocus } from "./store/slices/windowManagement";
+import { setWindowInFocus } from "./store/slices/taskManager";
 
 import "./Desktop.css";
 
@@ -15,14 +15,14 @@ function Desktop() {
   };
 
   return (
-    <div className="desktop-container" onMouseDown={setFocus}>
-      <div className="desktop-area">
+    <div className="desktop-container">
+      <div className="desktop-area" onMouseDown={setFocus}>
         {runningTasks.map((task) => {
           const Component = task.component;
           return <Notepad config={task} key={task.id} />;
         })}
       </div>
-      <Taskbar />
+      <Taskbar onMouseDown={setFocus}/>
     </div>
   );
 }

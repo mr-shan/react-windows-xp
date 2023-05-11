@@ -1,11 +1,13 @@
 import { nanoid } from "nanoid";
 import { createSlice } from "@reduxjs/toolkit";
 import * as PROGRAMS from "./../../constants/programs";
+import { WINDOW_STATES } from "../../constants/windowStates";
 
 export const taskManager = createSlice({
   name: "taskManager",
   initialState: {
     runningTasks: new Array<any>(),
+    windowInFocus: null,  // this stores ID only.
   },
   reducers: {
     createNewTask: (state, action) => {
@@ -17,17 +19,46 @@ export const taskManager = createSlice({
 
       const newProgram = { ...programConfig };
       newProgram.id = nanoid();
+      newProgram.isFocused = true;
+      newProgram.windowState = WINDOW_STATES.NORMAL
+      state.windowInFocus = newProgram.id;
       state.runningTasks.push(newProgram);
     },
+
     closeTask: (state, action) => {
       state.runningTasks = state.runningTasks.filter(
         (e) => e.id !== action.payload
       );
     },
+
+    setWindowInFocus: (state, action) => {
+      const oldWindowInFocus = state.runningTasks.find(e => e.id === state.windowInFocus);
+      if (oldWindowInFocus) {
+        oldWindowInFocus.isFocused = false;
+      }
+
+      state.windowInFocus = action.payload;
+      
+      const newWindowInFocus = state.runningTasks.find(task => task.id === action.payload);
+      if (newWindowInFocus) {
+        newWindowInFocus.isFocused = true;
+        if (newWindowInFocus.windowState === WINDOW_STATES.MINIMISED)
+          newWindowInFocus.windowState = newWindowInFocus.oldWindowState || WINDOW_STATES.NORMAL;
+      }
+    },
+
+    setWindowState: (state, action) => {
+      const windowInFocus = state.runningTasks.find(e => e.id === action.payload.id);
+      if (windowInFocus) {
+        windowInFocus.oldWindowState = windowInFocus.windowState
+        windowInFocus.windowState = action.payload.state;
+      }
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createNewTask, closeTask } = taskManager.actions;
+export const { createNewTask, closeTask, setWindowInFocus, setWindowState } =
+  taskManager.actions;
 
 export default taskManager.reducer;

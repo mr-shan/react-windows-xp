@@ -2,12 +2,13 @@
     display: flex;
     width: 100%;
     height: var(--taskbar-height);
-    padding: 2px;
+    padding: 3px;
     padding-top: 4px;
+    z-index: 1;
 }
 
 .taskWrapper {
-    border-radius: 2px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     padding: 3px 12px;
@@ -15,18 +16,27 @@
     cursor: pointer;
     flex: 1 1 auto;
     overflow: hidden;
+    margin-right: 1px;
 
     animation: open-in .25s ease-out forwards;
-    transition: all 0.25s;
+    transition: all 0.1s;
     
     border-right: solid 1px var(--primary-blue-darker-3);
-    background-color: var(--primary-blue-lighter-2);
-    box-shadow: 1px 1px 7px var(--primary-blue-darker-3), inset 0px -2px 4px var(--primary-blue-darker-3);
+    background-color: #3690F9;
+    box-shadow: inset 0px 2px 2px #A8CDF7, 2px 0px 5px var(--primary-blue)
+}
+
+.taskWrapper:hover {
+    background-color: #52a1fc;
 }
 
 .active {
     background-color: var(--primary-blue-darker-2);
     box-shadow: inset 1px 1px 5px var(--primary-blue-darker-3), inset -2px -2px 5px var(--primary-blue-darker-3);
+}
+
+.active:hover {
+    background-color: var(--primary-blue);
 }
 
 .taskWrapper img {

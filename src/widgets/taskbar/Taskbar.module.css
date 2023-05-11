@@ -3,15 +3,33 @@
 }
 
 .container {
-  background-color: var(--primary-blue);
+  /* background-color: var(--primary-blue); */
   height: var(--taskbar-height);
   width: 100%;
 
-  box-shadow: inset 0px 6px 3px var(--primary-blue-lighter-2),
-    inset 0px -4px 5px var(--primary-blue-darker-2);
+  /* box-shadow: inset 0px 6px 3px var(--primary-blue-lighter-2),
+    inset 0px -4px 5px var(--primary-blue-darker-2); */
   display: flex;
   justify-content: space-between;
   gap: 5px;
+  background: linear-gradient(
+    #005dff 0%,
+    #0265c3 3%,
+    #3682e5 6%,
+    #4390e6 10%,
+    #3783e5 12%,
+    #2b6fe0 15%,
+    #2663da 18%,
+    #235cd6 20%,
+    #225ad5 23%,
+    #215ad6 38%,
+    #255ddc 54%,
+    #2762df 86%,
+    #265edd 89%,
+    #2157d4 92%,
+    #1d4fb5 95%,
+    #194173 98%
+  );
 }
 
 .taskbarProgramLauncher {

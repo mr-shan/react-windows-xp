@@ -6,33 +6,50 @@
   top: 0;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px 4px 0 0;
+  border-radius: 10px 10px 0 0;
   padding: 7px;
 
-  background-color: var(--window-inactive);
-  box-shadow: inset 0px 4px 3px var(--window-inactive-light),
-    inset 0px -4px 2px var(--window-inactive-dark);
+  box-shadow: inset 5px 0px 5px #6582f5, inset -5px 0px 5px #6582f5;
+
   background: linear-gradient(
-    var(--window-inactive),
-    var(--window-inactive),
-    var(--window-inactive),
-    var(--window-inactive-light)
+    rgb(118, 151, 231) 0%,
+    rgb(126, 158, 227) 3%,
+    rgb(148, 175, 232) 6%,
+    rgb(151, 180, 233) 8%,
+    rgb(130, 165, 228) 14%,
+    rgb(124, 159, 226) 17%,
+    rgb(121, 150, 222) 25%,
+    rgb(123, 153, 225) 56%,
+    rgb(130, 169, 233) 81%,
+    rgb(128, 165, 231) 89%,
+    rgb(123, 150, 225) 94%,
+    rgb(122, 147, 223) 97%,
+    rgb(171, 186, 227) 100%
   );
 }
 
 .containerActive {
-  background-color: var(--window-blue);
-  box-shadow: inset 0px 4px 3px var(--primary-blue-lighter-1),
-    inset 0px -4px 2px var(--primary-blue-darker-1);
+  box-shadow: inset 5px 0px 5px #0831d9, inset -5px 0px 5px #0831d9;
   background: linear-gradient(
-    var(--window-blue),
-    var(--window-blue),
-    var(--window-blue),
-    var(--primary-blue-lighter-1)
+    #0058ee 0%,
+    #3593ff 4%,
+    #288eff 6%,
+    #127dff 8%,
+    #036ffc 10%,
+    #0262ee 14%,
+    #0057e5 20%,
+    #0054e3 24%,
+    #0055eb 56%,
+    #005bf5 66%,
+    #026afe 76%,
+    #0062ef 86%,
+    #0052d6 92%,
+    #0040ab 94%,
+    #003092 100%
   );
 }
 
-.title {
+.titleWrapper {
   font-weight: 600;
   margin-top: 2px;
   font-size: 1rem;
@@ -44,4 +61,17 @@
   justify-content: flex-end;
   gap: 5px;
   align-items: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
 }

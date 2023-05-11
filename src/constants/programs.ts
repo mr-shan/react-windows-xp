@@ -1,4 +1,5 @@
 import notepad from '@/assets/logos/notepad.png'
+import { WINDOW_STATES } from './windowStates';
 
 export const NOTEPAD = {
   id: null,
@@ -14,5 +15,6 @@ export const NOTEPAD = {
       close: true,
     },
     resizable: true,
-  }
+  },
+  windowState: WINDOW_STATES.CLOSED
 };

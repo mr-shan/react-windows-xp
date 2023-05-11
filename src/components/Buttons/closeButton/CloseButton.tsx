@@ -14,7 +14,7 @@ export default function CloseButton(props) {
     );
   }, [props.focus]);
   return (
-    <button className={classes} onClick={props.onClose}>
+    <button className={classes} onClick={props.onClose} onMouseDown={(event) => event.stopPropagation()}>
       <img src={cross2} />
     </button>
   );
