@@ -1,0 +1,31 @@
+.window__container {
+  background-color: #6582F5;
+  position: absolute;
+  border-radius: 10px 10px 2px 2px;
+  left: 100px;
+  top: 100px;
+}
+
+.window__content {
+  width: 100%;
+  height: 100%;
+  border-top: none;
+  border-radius: 10px 10px 2px 2px;
+  border: none;
+  padding: 4px;
+  padding-top: var(--title-bar-height);
+}
+
+.window__content.active {
+  background-color: #0831D9;
+}
+
+.window__no-orders {
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px var(--window-blue) !important;
+}
+
+.window__minimized {
+  display: none;
+}

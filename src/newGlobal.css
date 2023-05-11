@@ -1,0 +1,72 @@
+:root {
+  --primary-1: #0058ee;
+  --primary-2: #0262be;
+  --primary-3: #0054a3;
+  --primary-4: #0055eb;
+  --primary-5: #025af5;
+  --primary-6: #026afe;
+  --primary-7: #0062ef;
+  --primary-8: #0040ae;
+  --primary-9: #003fab;
+  --primary-10: #0030a6;
+}
+
+.titlebar__bg {
+  background: linear-gradient(
+    var(--primary-1) 0%,
+    var(--primary-2) 4%,
+    var(--primary-3) 6%,
+    var(--primary-4) 8%,
+    var(--primary-5) 10%,
+    var(--primary-6) 14%,
+    var(--primary-7) 20%,
+    var(--primary-8) 24%,
+    var(--primary-9) 56%,
+    var(--primary-10) 66%,
+    var(--primary-6) 76%,
+    var(--primary-2) 86%,
+    var(--primary-8) 92%,
+    var(--primary-10) 94%,
+    var(--primary-10) 100%
+  );
+
+  background: linear-gradient(
+    #005dff 0%,
+    #0265c3 3%,
+    #3682e5 6%,
+    #4390e6 10%,
+    #3783e5 12%,
+    #2b6fe0 15%,
+    #2663da 18%,
+    #235cd6 20%,
+    #225ad5 23%,
+    #215ad6 38%,
+    #255ddc 54%,
+    #2762df 86%,
+    #265edd 89%,
+    #2157d4 92%,
+    #1d4fb5 95%,
+    #194173 98%
+  );
+}
+
+.taskbar__bg {
+  background: linear-gradient(
+    var(--primary-1) 0px,
+    var(--primary-2) 3%,
+    var(--primary-3) 6%,
+    var(--primary-4) 10%,
+    var(--primary-5) 12%,
+    var(--primary-6) 15%,
+    var(--primary-7) 18%,
+    var(--primary-8) 20%,
+    var(--primary-9) 23%,
+    var(--primary-10) 38%,
+    var(--primary-6) 54%,
+    var(--primary-2) 86%,
+    var(--primary-4) 89%,
+    var(--primary-9) 92%,
+    var(--primary-8) 95%,
+    var(--primary-7) 98%
+  );
+}
