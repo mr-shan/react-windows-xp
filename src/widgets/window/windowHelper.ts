@@ -8,7 +8,6 @@ export const getDimensionObject = (width, height, left, top, zIndex, dim) => {
         top: top || "100px",
         zIndex: zIndex || 1,
     };
-
     return dim;
 }
 

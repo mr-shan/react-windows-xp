@@ -60,6 +60,11 @@ export const taskManager = createSlice({
         windowInFocus.oldWindowState = windowInFocus.windowState
         windowInFocus.windowState = action.payload.state;
       }
+
+      if (action.payload.state === WINDOW_STATES.MINIMISED) {
+        // change the focus to another window.
+        windowInFocus.isFocused = false;
+      }
     },
 
     setWindowPosition: (state, { payload }) => {

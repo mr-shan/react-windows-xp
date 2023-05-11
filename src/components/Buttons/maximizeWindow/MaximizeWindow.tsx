@@ -14,7 +14,7 @@ export default function CloseButton(props) {
     );
   }, [props.focus]);
   return (
-    <button className={classes} onClick={props.onMaximize} onMouseDown={(event) => event.stopPropagation()}>
+    <button className={classes} onClick={props.onMaximize}>
       <div className={styles.maximizeIcon}></div>
     </button>
   );

@@ -25,9 +25,12 @@
   padding: 0;
   padding-top: var(--title-bar-height);
   padding-bottom: 1px;
-  border-radius: none;
+  border-radius: 0 !important;
 }
 
-.window__minimized {
-  display: none;
+.window__maximized {
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }

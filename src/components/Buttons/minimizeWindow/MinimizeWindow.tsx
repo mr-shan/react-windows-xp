@@ -13,7 +13,7 @@ export default function CloseButton(props) {
     );
   }, [props.focus]);
   return (
-    <button className={classes} onClick={props.onMinimize} onMouseDown={(event) => event.stopPropagation()}>
+    <button className={classes} onClick={props.onMinimize}>
       <div className={styles.maximizeIcon}></div>
     </button>
   );

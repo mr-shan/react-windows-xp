@@ -7,8 +7,8 @@ export const NOTEPAD = {
   icon: notepad,
   filePath: "",
   windowConfig: {
-    height: 400,
-    width: 600,
+    height: '400px',
+    width: '600px',
     buttons: {
       minimize: true,
       maximize: true,
