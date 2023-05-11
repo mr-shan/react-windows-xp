@@ -15,6 +15,11 @@ export const NOTEPAD = {
       close: true,
     },
     resizable: true,
+    position: {
+      left: '100px',
+      top: '100px'
+    },
+    zIndex: 10
   },
   windowState: WINDOW_STATES.CLOSED
 };

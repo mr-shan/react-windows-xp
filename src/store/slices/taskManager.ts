@@ -3,6 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as PROGRAMS from "./../../constants/programs";
 import { WINDOW_STATES } from "../../constants/windowStates";
 
+//helper functions
+const defocusCurrentWindow = (state) => {
+  const oldWindowInFocus = state.runningTasks.find(e => e.id === state.windowInFocus);
+  if (oldWindowInFocus) {
+    oldWindowInFocus.isFocused = false;
+  }
+  return oldWindowInFocus;
+}
+
 export const taskManager = createSlice({
   name: "taskManager",
   initialState: {
@@ -16,6 +25,8 @@ export const taskManager = createSlice({
         // TODO handle error
         return;
       }
+
+      defocusCurrentWindow(state);
 
       const newProgram = { ...programConfig };
       newProgram.id = nanoid();
@@ -32,11 +43,7 @@ export const taskManager = createSlice({
     },
 
     setWindowInFocus: (state, action) => {
-      const oldWindowInFocus = state.runningTasks.find(e => e.id === state.windowInFocus);
-      if (oldWindowInFocus) {
-        oldWindowInFocus.isFocused = false;
-      }
-
+      defocusCurrentWindow(state);
       state.windowInFocus = action.payload;
       
       const newWindowInFocus = state.runningTasks.find(task => task.id === action.payload);
@@ -53,12 +60,19 @@ export const taskManager = createSlice({
         windowInFocus.oldWindowState = windowInFocus.windowState
         windowInFocus.windowState = action.payload.state;
       }
+    },
+
+    setWindowPosition: (state, { payload }) => {
+      const win = state.runningTasks.find(e => e.id === payload.id);
+      if (!win) return;
+
+      win.windowConfig.position = { top: payload.top, left: payload.left };
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createNewTask, closeTask, setWindowInFocus, setWindowState } =
+export const { createNewTask, closeTask, setWindowInFocus, setWindowState, setWindowPosition } =
   taskManager.actions;
 
 export default taskManager.reducer;

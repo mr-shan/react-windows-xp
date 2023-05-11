@@ -6,13 +6,14 @@ import { WINDOW_STATES } from "@/constants/windowStates";
 import { getDimensionObject, getWindowState } from "./windowHelper";
 import "./Window.css";
 
-import { setWindowInFocus, setWindowState } from "@/store/slices/taskManager";
+import { setWindowInFocus, setWindowState, setWindowPosition } from "@/store/slices/taskManager";
 
 let X = 0;
 let Y = 0;
 let WINDOW_POSX = null;
 let WINDOW_POSY = null;
-let MOUSE_DOWN = false
+let MOUSE_DOWN = false;
+let HAS_WINDOW_MOVED = false;
 
 export default function Window(props) {
   const dispatch = useDispatch();
@@ -30,7 +31,6 @@ export default function Window(props) {
   );
 
   const [classes, setClasses] = useState("window__content");
-  const [mouseDownCord, setMouseDownCords] = useState(null);
 
   useEffect(() => {
     const oldDim = { ...dimensions };
@@ -47,10 +47,10 @@ export default function Window(props) {
       oldDim.left = "0";
       oldDim.top = "0";
     } else {
-      oldDim.width = props.programInfo.windowConfig?.width || 720;
-      oldDim.height = props.programInfo.windowConfig?.height || 720;
-      oldDim.left = "100px";
-      oldDim.top = "100px";
+      oldDim.width = props.programInfo.windowConfig?.width;
+      oldDim.height = props.programInfo.windowConfig?.height;
+      oldDim.left = props.programInfo.windowConfig.position.left;
+      oldDim.top = props.programInfo.windowConfig.position.top;
     }
 
     setDimensions(oldDim);
@@ -66,14 +66,6 @@ export default function Window(props) {
         : "";
     setClasses(classStr);
   };
-
-  // const mouseMoveHandler = (event) => {
-  //   const curL = windowRef?.current?.style?.left.split("px")[0];
-  //   const curT = windowRef?.current?.style?.top.split("px")[0];
-
-  //   windowRef.current.style.left = parseInt(curL) + event.movementX + "px";
-  //   windowRef.current.style.top = parseInt(curT) + event.movementY + "px";
-  // };
 
   const setFocus = (event) => {
     event.stopPropagation();
@@ -100,10 +92,22 @@ export default function Window(props) {
     MOUSE_DOWN = false;
     WINDOW_POSX = null;
     WINDOW_POSY = null;
+
+    if (!HAS_WINDOW_MOVED) return;
+
+    HAS_WINDOW_MOVED = false;
+
+    dispatch(setWindowPosition({
+      id: props.programInfo.id,
+      left: windowRef.current.style.left,
+      top: windowRef.current.style.top
+    }));
   };
 
   const mouseMoveHandler = (event) => {
     if (!MOUSE_DOWN) return;
+
+    HAS_WINDOW_MOVED = true;
     
     const dx = event.clientX - X + WINDOW_POSX;
     const dy = event.clientY - Y + WINDOW_POSY;

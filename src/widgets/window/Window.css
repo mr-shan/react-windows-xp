@@ -2,8 +2,6 @@
   background-color: #6582F5;
   position: absolute;
   border-radius: 10px 10px 2px 2px;
-  left: 100px;
-  top: 100px;
 }
 
 .window__content {
@@ -24,6 +22,10 @@
   border-left: none !important;
   border-right: none !important;
   border-bottom: solid 2px var(--window-blue) !important;
+  padding: 0;
+  padding-top: var(--title-bar-height);
+  padding-bottom: 1px;
+  border-radius: none;
 }
 
 .window__minimized {
