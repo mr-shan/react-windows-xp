@@ -93,7 +93,7 @@ export default function Window(props) {
     height: props.programInfo.windowConfig.height,
     left: props.programInfo.windowConfig.position.left,
     top: props.programInfo.windowConfig.position.top,
-    zIndex: props.programInfo.isFocused ? 10 : 1,
+    zIndex: props.programInfo.zIndex,
   };
 
   let winContentClasses = "window__content ";

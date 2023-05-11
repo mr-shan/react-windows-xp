@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as PROGRAMS from "./../../constants/programs";
 import { WINDOW_STATES } from "../../constants/windowStates";
 
+let WINDOW_FOCUS_COUNTER = 10;
+
 //helper functions
 const defocusCurrentWindow = (state) => {
   const oldWindowInFocus = state.runningTasks.find(e => e.id === state.windowInFocus);
@@ -32,6 +34,7 @@ export const taskManager = createSlice({
       newProgram.id = nanoid();
       newProgram.isFocused = true;
       newProgram.windowState = WINDOW_STATES.NORMAL
+      newProgram.zIndex = ++WINDOW_FOCUS_COUNTER;
       state.windowInFocus = newProgram.id;
       state.runningTasks.push(newProgram);
     },
@@ -49,6 +52,7 @@ export const taskManager = createSlice({
       const newWindowInFocus = state.runningTasks.find(task => task.id === action.payload);
       if (newWindowInFocus) {
         newWindowInFocus.isFocused = true;
+        newWindowInFocus.zIndex = ++WINDOW_FOCUS_COUNTER;
         if (newWindowInFocus.windowState === WINDOW_STATES.MINIMISED)
           newWindowInFocus.windowState = newWindowInFocus.oldWindowState || WINDOW_STATES.NORMAL;
       }

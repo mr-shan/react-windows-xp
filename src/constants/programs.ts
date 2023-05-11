@@ -19,7 +19,7 @@ export const NOTEPAD = {
       left: '100px',
       top: '100px'
     },
-    zIndex: 10
   },
+  zIndex: 10,
   windowState: WINDOW_STATES.CLOSED
 };
