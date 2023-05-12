@@ -43,6 +43,7 @@ export const taskManager = createSlice({
       state.runningTasks = state.runningTasks.filter(
         (e) => e.id !== action.payload
       );
+      if (state.runningTasks.length === 0) WINDOW_FOCUS_COUNTER = 10;
     },
 
     setWindowInFocus: (state, action) => {
