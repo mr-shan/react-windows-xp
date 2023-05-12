@@ -19,6 +19,8 @@ export const NOTEPAD = {
       left: '100px',
       top: '100px'
     },
+    minHeight: '200px',
+    minWidth: '300px'
   },
   zIndex: 10,
   windowState: WINDOW_STATES.CLOSED

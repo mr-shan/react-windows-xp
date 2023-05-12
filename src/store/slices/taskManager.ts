@@ -76,12 +76,22 @@ export const taskManager = createSlice({
       if (!win) return;
 
       win.windowConfig.position = { top: payload.top, left: payload.left };
+    },
+
+    setWindowDimensions: (state, { payload }) => {
+      const win = state.runningTasks.find(e => e.id === payload.id);
+      if (!win) return;
+
+      win.windowConfig.height = payload.height;
+      win.windowConfig.width = payload.width;
+
+      console.log(payload)
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createNewTask, closeTask, setWindowInFocus, setWindowState, setWindowPosition } =
+export const { createNewTask, closeTask, setWindowInFocus, setWindowState, setWindowPosition, setWindowDimensions } =
   taskManager.actions;
 
 export default taskManager.reducer;
