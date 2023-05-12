@@ -74,18 +74,16 @@ export const taskManager = createSlice({
     setWindowPosition: (state, { payload }) => {
       const win = state.runningTasks.find(e => e.id === payload.id);
       if (!win) return;
-
       win.windowConfig.position = { top: payload.top, left: payload.left };
     },
-
+    
     setWindowDimensions: (state, { payload }) => {
       const win = state.runningTasks.find(e => e.id === payload.id);
       if (!win) return;
+      console.log("Set window dims", payload)
 
       win.windowConfig.height = payload.height;
       win.windowConfig.width = payload.width;
-
-      console.log(payload)
     }
   },
 });

@@ -79,8 +79,6 @@ export default function Window(props) {
     WINDOW_POSY = null;
     MOUSE_DOWN = false;
 
-    if (!RESIZE_DIRECTION) return;
-
     if (RESIZE_DIRECTION === 'LEFT' || RESIZE_DIRECTION === 'TOP') {
       dispatch(
         setWindowPosition({
@@ -129,18 +127,20 @@ export default function Window(props) {
         windowRef.current.style.height =
           parseInt(props.programInfo.windowConfig.height) + dy + "px";
         break;
-      // case "TOP":
-      //   const height = parseInt(props.programInfo.windowConfig.height);
-      //   if (height <= parseInt(props.programInfo.windowConfig.minHeight) && dy > 0) return;
-      //   windowRef.current.style.top = dy + WINDOW_POSX + "px";
-      //   windowRef.current.style.height = height - dy + "px";
-      //   break;
-      // case "LEFT":
-      //   const width = parseInt(props.programInfo.windowConfig.width);
-      //   if (width <= parseInt(props.programInfo.windowConfig.minWidth)) return;
-      //   windowRef.current.style.left = dx + WINDOW_POSY + "px";
-      //   windowRef.current.style.width = width - dx + "px";
-      //   break;
+      case "TOP":
+        const height = parseInt(props.programInfo.windowConfig.height);
+        const newHeight = height - dy;
+        if (newHeight <= parseInt(props.programInfo.windowConfig.minHeight)) return;
+        windowRef.current.style.top = dy + WINDOW_POSY + "px";
+        windowRef.current.style.height = newHeight + "px";
+        break;
+      case "LEFT":
+        const width = parseInt(props.programInfo.windowConfig.width);
+        const newWidth = width - dx;
+        if (newWidth <= parseInt(props.programInfo.windowConfig.minWidth)) return;
+        windowRef.current.style.left = dx + WINDOW_POSX + "px";
+        windowRef.current.style.width = newWidth + "px";
+        break;
       case "BOTH":
         windowRef.current.style.width =
           parseInt(props.programInfo.windowConfig.width) + dx + "px";
