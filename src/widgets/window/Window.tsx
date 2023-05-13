@@ -1,17 +1,17 @@
-import { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Titlebar from "../../components/titleBar/Titlebar";
-import { WINDOW_STATES } from "@/constants/windowStates";
-import { getWindowState } from "./windowHelper";
-import "./Window.css";
+import Titlebar from '../../components/titleBar/Titlebar';
+import { WINDOW_STATES } from '@/constants/windowStates';
+import { getWindowState } from './windowHelper';
+import './Window.css';
 
 import {
   setWindowInFocus,
   setWindowState,
   setWindowPosition,
   setWindowDimensions,
-} from "@/store/slices/taskManager";
+} from '@/store/slices/taskManager';
 
 let X = 0;
 let Y = 0;
@@ -22,11 +22,11 @@ let HAS_WINDOW_MOVED = false;
 let RESIZE_DIRECTION = null;
 
 const RESIZE_MOVEMENTS = {
-  LEFT: "HORIZONTAL",
-  RIGHT: "HORIZONTAL",
-  TOP: "VERTICAL",
-  BOTTOM: "VERTICAL",
-  CORNER: "BOTH",
+  LEFT: 'HORIZONTAL',
+  RIGHT: 'HORIZONTAL',
+  TOP: 'VERTICAL',
+  BOTTOM: 'VERTICAL',
+  CORNER: 'BOTH',
 };
 
 export default function Window(props) {
@@ -53,8 +53,8 @@ export default function Window(props) {
   };
 
   const mouseUpHandler = (event) => {
-    document.removeEventListener("mousemove", mouseMoveHandler, false);
-    document.removeEventListener("mouseup", mouseUpHandler, false);
+    document.removeEventListener('mousemove', mouseMoveHandler, false);
+    document.removeEventListener('mouseup', mouseUpHandler, false);
     MOUSE_DOWN = false;
     WINDOW_POSX = null;
     WINDOW_POSY = null;
@@ -73,8 +73,8 @@ export default function Window(props) {
   };
 
   const mouseUpHandlerForResize = (event) => {
-    document.removeEventListener("mousemove", mouseMoveHandlerForResize, false);
-    document.removeEventListener("mouseup", mouseUpHandlerForResize, false);
+    document.removeEventListener('mousemove', mouseMoveHandlerForResize, false);
+    document.removeEventListener('mouseup', mouseUpHandlerForResize, false);
     WINDOW_POSX = null;
     WINDOW_POSY = null;
     MOUSE_DOWN = false;
@@ -108,8 +108,8 @@ export default function Window(props) {
     const dx = event.clientX - X + WINDOW_POSX;
     const dy = event.clientY - Y + WINDOW_POSY;
 
-    windowRef.current.style.left = dx + "px";
-    windowRef.current.style.top = dy + "px";
+    windowRef.current.style.left = dx + 'px';
+    windowRef.current.style.top = dy + 'px';
   };
 
   const mouseMoveHandlerForResize = (event) => {
@@ -119,33 +119,35 @@ export default function Window(props) {
     const dy = event.clientY - Y;
 
     switch (RESIZE_DIRECTION) {
-      case "RIGHT":
+      case 'RIGHT':
         windowRef.current.style.width =
-          parseInt(props.programInfo.windowConfig.width) + dx + "px";
+          parseInt(props.programInfo.windowConfig.width) + dx + 'px';
         break;
-      case "BOTTOM":
+      case 'BOTTOM':
         windowRef.current.style.height =
-          parseInt(props.programInfo.windowConfig.height) + dy + "px";
+          parseInt(props.programInfo.windowConfig.height) + dy + 'px';
         break;
-      case "TOP":
+      case 'TOP':
         const height = parseInt(props.programInfo.windowConfig.height);
         const newHeight = height - dy;
-        if (newHeight <= parseInt(props.programInfo.windowConfig.minHeight)) return;
-        windowRef.current.style.top = dy + WINDOW_POSY + "px";
-        windowRef.current.style.height = newHeight + "px";
+        if (newHeight <= parseInt(props.programInfo.windowConfig.minHeight))
+          return;
+        windowRef.current.style.top = dy + WINDOW_POSY + 'px';
+        windowRef.current.style.height = newHeight + 'px';
         break;
-      case "LEFT":
+      case 'LEFT':
         const width = parseInt(props.programInfo.windowConfig.width);
         const newWidth = width - dx;
-        if (newWidth <= parseInt(props.programInfo.windowConfig.minWidth)) return;
-        windowRef.current.style.left = dx + WINDOW_POSX + "px";
-        windowRef.current.style.width = newWidth + "px";
+        if (newWidth <= parseInt(props.programInfo.windowConfig.minWidth))
+          return;
+        windowRef.current.style.left = dx + WINDOW_POSX + 'px';
+        windowRef.current.style.width = newWidth + 'px';
         break;
-      case "BOTH":
+      case 'RIGHTBOTTOM':
         windowRef.current.style.width =
-          parseInt(props.programInfo.windowConfig.width) + dx + "px";
+          parseInt(props.programInfo.windowConfig.width) + dx + 'px';
         windowRef.current.style.height =
-          parseInt(props.programInfo.windowConfig.height) + dy + "px";
+          parseInt(props.programInfo.windowConfig.height) + dy + 'px';
         break;
     }
   };
@@ -158,16 +160,16 @@ export default function Window(props) {
     WINDOW_POSX = parseInt(windowRef.current.style.left);
     WINDOW_POSY = parseInt(windowRef.current.style.top);
 
-    if (event.target.className.includes("window__resizer_track")) {
-      const className = event.target.className.split(" ")[1];
+    if (event.target.className.includes('window__resizer_track')) {
+      const className = event.target.className.split(' ')[1];
       const direction = className.substring(22, className.length);
       if (!direction) return;
       RESIZE_DIRECTION = direction.toUpperCase();
-      document.addEventListener("mousemove", mouseMoveHandlerForResize, false);
-      document.addEventListener("mouseup", mouseUpHandlerForResize, false);
+      document.addEventListener('mousemove', mouseMoveHandlerForResize, false);
+      document.addEventListener('mouseup', mouseUpHandlerForResize, false);
     } else {
-      document.addEventListener("mousemove", mouseMoveHandler, false);
-      document.addEventListener("mouseup", mouseUpHandler, false);
+      document.addEventListener('mousemove', mouseMoveHandler, false);
+      document.addEventListener('mouseup', mouseUpHandler, false);
     }
   };
 
@@ -180,21 +182,21 @@ export default function Window(props) {
     top: props.programInfo.windowConfig.position.top,
     zIndex: props.programInfo.zIndex,
     minWidth: props.programInfo.windowConfig.minWidth,
-    minHeight: props.programInfo.windowConfig.minHeight
+    minHeight: props.programInfo.windowConfig.minHeight,
   };
 
-  let winContentClasses = "window__content ";
-  winContentClasses += props.programInfo.isFocused ? "active " : "";
+  let winContentClasses = 'window__content ';
   winContentClasses +=
     props.programInfo.windowState === WINDOW_STATES.MAXIMIZED
-      ? "window__no-orders window__maximized"
-      : "";
+      ? 'window__maximized'
+      : '';
 
-  let winClassStr = "window__container ";
+  let winClassStr = 'window__container ';
+  winClassStr += props.programInfo.isFocused ? 'active ' : '';
   winClassStr +=
     props.programInfo.windowState === WINDOW_STATES.MAXIMIZED
-      ? "window__maximized "
-      : "";
+      ? 'window__maximized '
+      : '';
 
   return (
     <div
@@ -203,31 +205,48 @@ export default function Window(props) {
       ref={windowRef}
       onMouseDown={setFocus}
     >
-      <div className="window__resizer-container">
-        <div
-          dataname="resizerTop"
-          className="window__resizer_track window__resizer_track_top"
-          onMouseDown={mouseDownHandler}
-        ></div>
-        <div
-          dataname="resizerRight"
-          className="window__resizer_track window__resizer_track_right"
-          onMouseDown={mouseDownHandler}
-        ></div>
-        <div
-          dataname="resizerBottom"
-          className="window__resizer_track window__resizer_track_bottom"
-          onMouseDown={mouseDownHandler}
-        ></div>
-        <div
-          dataname="resizerLeft"
-          className="window__resizer_track window__resizer_track_left"
-          onMouseDown={mouseDownHandler}
-        ></div>
-      </div>
+      {props.programInfo.windowState !== WINDOW_STATES.MAXIMIZED && (
+        <div className="window__resizer-container">
+          <div
+            className="window__resizer_track window__resizer_track_top"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_right"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_bottom"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_left"
+            onMouseDown={mouseDownHandler}
+          />
+
+          <div
+            className="window__resizer_track window__resizer_track_leftTop"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_rightBottom"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_rightTop"
+            onMouseDown={mouseDownHandler}
+          />
+          <div
+            className="window__resizer_track window__resizer_track_leftBottom"
+            onMouseDown={mouseDownHandler}
+          />
+        </div>
+      )}
+
       <div
         onDoubleClick={windowStateChangeHandler}
         onMouseDown={mouseDownHandler}
+        className='window__titlebar-container'
       >
         <Titlebar
           focus={props.programInfo.isFocused}
