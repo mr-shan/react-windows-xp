@@ -1,4 +1,5 @@
 import notepad from '@/assets/logos/notepad.png'
+import error from "@/assets/logos/error.png"
 import { WINDOW_STATES } from './windowStates';
 
 export const NOTEPAD = {
@@ -21,6 +22,31 @@ export const NOTEPAD = {
     },
     minHeight: '200px',
     minWidth: '300px'
+  },
+  zIndex: 10,
+  windowState: WINDOW_STATES.CLOSED
+};
+
+export const ERROR = {
+  id: null,
+  name: "Error Occurred!",
+  icon: error,
+  filePath: "",
+  windowConfig: {
+    height: '',
+    width: '400px',
+    buttons: {
+      minimize: false,
+      maximize: false,
+      close: false,
+    },
+    resizable: false,
+    position: {
+      left: '100px',
+      top: '100px'
+    },
+    minHeight: '',
+    minWidth: ''
   },
   zIndex: 10,
   windowState: WINDOW_STATES.CLOSED

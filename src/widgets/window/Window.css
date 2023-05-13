@@ -3,9 +3,6 @@
   position: absolute;
   border-radius: 10px 10px 2px 2px;
 
-  min-width: 300px;
-  min-height: 200px;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

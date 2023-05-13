@@ -25,9 +25,15 @@ export default function Titlebar(props) {
       </div>
 
       <div className={styles.buttonsContainer}>
-        <MinimizeWindow focus={props.focus} onMinimize={props.onMinimize} />
-        <MaximizeWindow focus={props.focus} onMaximize={props.onMaximize} />
-        <CloseButton focus={props.focus} onClose={props.onClose} />
+        {props.buttonsConfig.minimize && (
+          <MinimizeWindow focus={props.focus} onMinimize={props.onMinimize} />
+        )}
+        {props.buttonsConfig.maximize && (
+          <MaximizeWindow focus={props.focus} onMaximize={props.onMaximize} />
+        )}
+        {props.buttonsConfig.close && (
+          <CloseButton focus={props.focus} onClose={props.onClose} />
+        )}
       </div>
     </div>
   );
