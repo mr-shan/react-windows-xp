@@ -8,4 +8,20 @@
     border: none;
     outline: none;
     font-family: "Lucida Console", monospace;
+    padding: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
+html::-webkit-scrollbar {
+    width: 20px; 
+  }
+  
+html::-webkit-scrollbar-track {
+    background:  linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(7, 0, 211, 1) 100%);
+  }
+
+html::-webkit-scrollbar-thumb {
+    background: transparent;
+    box-shadow: 0px 0px 0px 100vh black;
+  }
