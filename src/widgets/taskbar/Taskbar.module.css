@@ -54,7 +54,13 @@
   background-color: var(--primary-blue-lighter-1);
 }
 
-.taskbarProgramLauncher img {
+.quickLinks {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.quickLinks img {
   width: 1.25rem;
   height: 1.25rem;
 }

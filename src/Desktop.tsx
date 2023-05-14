@@ -5,6 +5,7 @@ import "./Desktop.css";
 
 import Taskbar from "./widgets/taskbar/Taskbar";
 import Notepad from "./programs/notepad/Notepad";
+import InternetExplorer from "./programs/internetExplorer/InternetExplorer"
 
 function Desktop() {
   const dispatch = useDispatch();
